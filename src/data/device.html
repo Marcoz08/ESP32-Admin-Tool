@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="es">
+<!-- BEGIN HEAD-->
+
+<head>
+    <meta charset="UTF-8" />
+    <title>AdminTool | Device</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta content="" name="description" />
+    <meta content="MZTechnologies" name="author" />
+    <!-- Favicon icon -->
+    <link rel="icon" href="favicon.png" type="image/x-icon">
+    <!-- GLOBAL STYLES -->
+    <link rel="stylesheet" href="bootstrap.css" />
+    <link rel="stylesheet" href="main.css" />
+    <link rel="stylesheet" href="theme.css" />
+    <link rel="stylesheet" href="MoneAdmin.css" />
+    <link rel="stylesheet" href="font-awesome.css" />
+    <link rel="stylesheet" href="bootstrap-switch.css" />
+    <link rel="stylesheet" href="styles.css" />
+    <!--END GLOBAL STYLES -->
+</head>
+<!-- END  HEAD-->
+<!-- BEGIN BODY-->
+
+<body class="padTop53 ">
+    <!-- MAIN WRAPPER -->
+    <div id="wrap">
+        <!-- HEADER SECTION -->
+        <div id="top">
+            <nav class="navbar navbar-inverse navbar-fixed-top" style="padding-top: 10px;">
+                <a data-original-title="Show/Hide Menu" data-placement="bottom" data-tooltip="tooltip" class="accordion-toggle btn btn-primary btn-sm visible-xs" data-toggle="collapse" href="#menu" id="menu-toggle">
+                    <i class="icon-align-justify"></i>
+                </a>
+                <!-- LOGO SECTION -->
+                <header class="navbar-header">
+                    <a href="/" class="navbar-brand">
+                        <img src="logomzt.png" alt="" /></a>
+                </header>
+                <!-- END LOGO SECTION -->
+                <ul class="nav navbar-top-links navbar-right">
+                    <!--ADMIN SETTINGS SECTIONS -->
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                            <i class="icon-user icon-2x"></i>&nbsp; <i class="icon-chevron-down "></i>
+                        </a>
+                        <ul class="dropdown-menu dropdown-user">
+                            <li><a href="esp-admin"><i class="icon-user"></i> User </a></li>
+                            <li class="divider">
+                            </li>
+                            <li><a href="esp-logout"><i class="icon-signout"></i> Logout </a></li>
+                        </ul>
+                    </li>
+                    <!--END ADMIN SETTINGS -->
+                </ul>
+            </nav>
+        </div>
+        <!-- END HEADER SECTION -->
+        <!-- MENU SECTION -->
+        <div id="left">
+            <div class="media user-media well-small">
+                <a class="user-link" href="/">
+                    <img class="media-object img-thumbnail user-img" alt="User Picture" src="icono.png" />
+                </a>
+                <br />
+                <div class="media-body">
+                    <h5 class="media-heading"> ESP32</h5>
+                    <ul class="list-unstyled user-info">
+                        <li>
+                            <a class="btn btn-success btn-xs btn-circle" style="width: 10px;height: 12px;"></a> Online
+                        </li>
+                    </ul>
+                </div>
+                <br />
+            </div>
+            <ul id="menu" class="collapse">
+                <li class="panel">
+                    <a href="/">
+                        <i class="icon-th-large"></i> Dashboard
+                    </a>
+                </li>
+                <li class="panel">
+                    <a href="esp-wifi">
+                        <i class="icon-signal"></i> WIFI
+                    </a>
+                </li>
+                <li class="panel">
+                    <a href="esp-mqtt">
+                        <i class="icon-sitemap"></i> MQTT
+                    </a>
+                </li>
+                <li class="panel active">
+                    <a href="#" data-parent="#menu" data-toggle="collapse" class="accordion-toggle" data-target="#component-nav">
+                        <i class="icon-cogs"> </i> AdminPanel
+                        <span class="pull-right">
+                          <i class="icon-angle-left"></i>
+                        </span> &nbsp; <span class="label label-default">4</span>&nbsp;
+                    </a>
+                    <ul class="collapse" id="component-nav">
+                        <li class=""><a href="esp-device"><i class="icon-angle-right"></i> Device </a></li>
+                        <li class=""><a href="esp-restore"><i class="icon-angle-right"></i> Default settings </a></li>
+                        <li class=""><a href="esp-restart"><i class="icon-angle-right"></i> Reset </a></li>
+                        <li class=""><a href="esp-admin"><i class="icon-angle-right"></i> Password </a></li>
+                    </ul>
+                </li>
+                <li class="panel">
+                    <a href="esp-logout">
+                        <i class="icon-signout"></i> Logout
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <!--END MENU SECTION -->
+        <!--PAGE CONTENT -->
+        <div id="content">
+            <div class="inner" style="min-height:1200px;">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h2>Información del dispositivo</h2>
+                    </div>
+                </div>
+
+                <hr />
+                <div class="col-lg-12">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <i class="icon-info-sign"></i> Dispositivo
+                        </div>
+                        <div class="panel-body">
+                            <br>
+                            <form class="form-horizontal" name="esp-device" action="esp-device" method="POST" id="form">
+                                <div class="form-group">
+                                    <label for="serie" class="control-label col-lg-3">Número de Serie:</label>
+                                    <div class="col-lg-5">
+                                        <input type="text" id="serie" value="#123456789" readonly="" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="form-group" id="form_id">
+                                    <label for="id" class="control-label col-lg-3">Identificación del Dispositivo :</label>
+                                    <div class="col-lg-5">
+                                        <input type="text" id="id" name="id" value="Mi_Esp32" data-expresion="id" placeholder="Identificación del Dispositivo" class="form-control">
+                                        <!--     <label for="id" class="help-block formulario_input-error">El identificador tiene que
+                                            contener letras minúsculas, números y caracteres de 4-30 dígitos.</label>-->
+                                    </div>
+                                </div>
+                                <!-- <div class="form-group formulario_mensaje" id="formulario_mensaje">
+                                    <div class="col-lg-12">
+                                        <div class="alert alert-danger">
+                                            <p class="alert-link"><i class="icon-remove-sign"></i> <b>Error:</b> ¡Por favor rellena el formulario correctamente!. </p>
+                                        </div>
+                                    </div>
+                                </div>-->
+                                <div class="form-group">
+                                    <label for="#" class="control-label col-lg-3"></label>
+                                    <div class="col-lg-5">
+                                        <button class="btn btn-primary" type="submit"><i class="icon-save icon-white"></i>
+                                            Guardar</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--END PAGE CONTENT -->
+            <!-- RIGHT STRIP  SECTION -->
+        </div>
+        <!-- END RIGHT STRIP  SECTION -->
+    </div>
+    <!--END MAIN WRAPPER -->
+    <!-- FOOTER -->
+    <div id="footer ">
+        <p>&copy; MZTechnologies&nbsp;2022 &nbsp; v2.0.1</p>
+    </div>
+    <!--END FOOTER -->
+    <!-- GLOBAL SCRIPTS -->
+    <script src="jquery-2.0.3.min.js "></script>
+    <script src="bootstrap.min.js "></script>
+    <script src="modernizr-2.6.2.min.js "></script>
+    <script src="bootstrap-switch.min.js "></script>
+    <script src="scripts.js "></script>
+    <!-- END GLOBAL SCRIPTS -->
+</body>
+<!-- END BODY-->
+
+</html>
